@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biological Cell Simulation</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            padding: 1rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 1rem;
+            background-color: #00796b;
+            color: white;
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #00796b;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Cell Components */
+        .cell {
+            border: 2px solid #00796b;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            position: relative;
+            background-color: #80cbc4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nucleus {
+            background-color: #004d40;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .mitochondria {
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            background-color: #ffab00;
+            border-radius: 15px;
+            animation: float 3s infinite ease-in-out alternate;
+        }
+
+        .mitochondria:nth-child(1) { top: 20px; left: 50px; }
+        .mitochondria:nth-child(2) { top: 200px; right: 50px; }
+
+        @keyframes float {
+            to {
+                transform: translateY(10px);
+            }
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        #output {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Biological Cell Simulation</h1>
+    </header>
+    <main>
+        <h2>Explore the Cell</h2>
+        <p>Interact with the components of this cell simulation to learn about their functions.</p>
+        <div class="cell">
+            <div class="nucleus" id="nucleus">DNA</div>
+            <div class="mitochondria"></div>
+            <div class="mitochondria"></div>
+        </div>
+        <button id="triggerNucleus">Trigger DNA Replication</button>
+        <button id="triggerEnergy">Simulate ATP Production</button>
+        <div id="output"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 3dvr.tech | Inspired by Biology.</p>
+    </footer>
+    <script>
+        // Trigger DNA Replication
+        document.getElementById('triggerNucleus').addEventListener('click', () => {
+            const nucleus = document.getElementById('nucleus');
+            nucleus.textContent = 'Replication in Progress...';
+            setTimeout(() => {
+                nucleus.textContent = 'DNA Replicated!';
+            }, 2000);
+        });
+
+        // Simulate ATP Production
+        document.getElementById('triggerEnergy').addEventListener('click', () => {
+            const output = document.getElementById('output');
+            output.textContent = 'Mitochondria are producing ATP...';
+            setTimeout(() => {
+                output.textContent = 'Energy production complete!';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
